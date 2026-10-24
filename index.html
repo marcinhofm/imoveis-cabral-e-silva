@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessoria Cabral & Silva | Crédito e Imóveis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #06121e;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Topo do Site */
+        nav {
+            background-color: #0b1e32;
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #162e49;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-symbol {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #d4af37;
+        }
+
+        .logo-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .logo-subtitle {
+            color: #d4af37;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn-nav-whats {
+            background-color: #d4af37;
+            color: #000000;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .btn-nav-whats:hover {
+            background-color: #b8962e;
+        }
+
+        /* Seção Principal */
+        .hero {
+            padding: 4rem 5%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-text h1 span {
+            color: #d4af37;
+        }
+
+        .hero-text p {
+            color: #a4b3c6;
+            font-size: 1.1rem;
+        }
+
+        /* Caixa do Formulário de Simulação */
+        .simulador-box {
+            background-color: #0b1e32;
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid #162e49;
+            flex: 1;
+            min-width: 320px;
+            max-width: 450px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .simulador-box h3 {
+            text-align: center;
+            margin-bottom: 0.3rem;
+            font-size: 1.5rem;
+        }
+
+        .sub-whats {
+            text-align: center;
+            color: #d4af37;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            color: #a4b3c6;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: #06121e;
+            border: 1px solid #162e49;
+            border-radius: 4px;
+            color: #ffffff;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: #d4af37;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1.1rem;
+            background-color: #25d366;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #1ebe57;
+        }
+
+        /* Seção de Soluções/Linhas de Crédito */
+        .solutions {
+            padding: 4rem 5%;
+            background-color: #040c14;
+            border-top: 1px solid #162e49;
+        }
+
+        .solutions h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+        }
+
+        .solutions h2 span {
+            color: #d4af37;
+        }
+
+        .grid-solutions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .sol-card {
+            background-color: #0b1e32;
+            padding: 2rem;
+            border-radius: 6px;
+            border: 1px solid #162e49;
+            transition: transform 0.3s;
+        }
+
+        .sol-card:hover {
+            transform: translateY(-5px);
+            border-color: #d4af37;
+        }
+
+        .sol-card h4 {
+            color: #d4af37;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .sol-card p {
+            color: #a4b3c6;
+            font-size: 0.95rem;
+        }
+
+        /* Botão Flutuante do WhatsApp */
+        .whatsapp-floating {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            z-index: 1000;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-floating:hover {
+            transform: scale(1.1);
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #02080e;
+            padding: 3rem 5%;
+            border-top: 1px solid #162e49;
+            color: #a4b3c6;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-info h4 {
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Topo -->
+    <nav>
+        <div class="logo-container">
+            <div class="logo-symbol">CS</div>
+            <div>
+                <div class="logo-title">Cabral & Silva</div>
+                <div class="logo-subtitle">Assessoria Financeira</div>
+            </div>
+        </div>
+        <div>
+            <a href="https://wa.me" target="_blank" class="btn-nav-whats">Falar no WhatsApp</a>
+        </div>
+    </nav>
+
+    <!-- Seção Principal com o Painel Interativo -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Aqui você vai achar sua <span>casa nova e seu novo lar.</span></h1>
+            <p>Utilize o nosso simulador interativo para calcular seu crédito. Garantimos segurança, agilidade e atendimento exclusivo.</p>
+        </div>
+
+        <div class="simulador-box" id="simulador">
+            <h3>Simule Agora</h3>
+            <div class="sub-whats">Atendimento via (13) 99763-6655</div>
+            <form id="leadForm">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" required placeholder="Digite seu nome">
+                </div>
+                <div class="form-group">
+                    <label for="whatsapp">Seu WhatsApp</label>
+                    <input type="tel" id="whatsapp" required placeholder="(13) 99999-9999">
+                </div>
+                <div class="form-group">
+                    <label for="perfil">Modalidade de Crédito</label>
+                    <select id="perfil" required>
+                        <option value="">Selecione uma opção...</option>
+                        <option value="Financiamento Imobiliário">🏢 Financiamento Imobiliário</option>
+                        <option value="Empréstimo Consignado INSS">👴 Empréstimo Consignado INSS</option>
+                        <option value="Empréstimo Prefeitura / Servidor">🏛 Empréstimo Prefeitura / Servidor</option>
+                        <option value="Empréstimo CLT / FGTS">💼 Empréstimo CLT / FGTS</option>
+                        <option value="Empréstimo Bolsa Família">💳 Empréstimo Bolsa Família</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="valor">Valor Pretendido (R$)</label>
+                    <input type="number" id="valor" required placeholder="Ex: 5000">
+                </div>
+                <button type="submit" class="btn-submit">SIMULAR NO WHATSAPP</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Linhas de Crédito Detalhadas -->
+    <section class="solutions">
+        <h2>Nossas Linhas de <span>Atendimento</span></h2>
+        <div class="grid-solutions">
+            <div class="sol-card">
+                <h4>🏢 Financiamento Imobiliário</h4>
+                <p>Para quem deseja comprar a casa própria, apartamento ou terrenos. Crédito de longo prazo com taxas reduzidas e parcelas estáveis.</p>
+            </div>
+            <div class="sol-card">
+                <h4>👴 Consignado INSS</h4>
+                <p>Exclusivo para aposentados e pensionistas do INSS. Parcelas descontadas direto no benefício e sem consulta ao SPC/Serasa.</p>
+            </div>
+            <div class="sol-card">
+                <h4>🏛 Servidor Público</h4>
